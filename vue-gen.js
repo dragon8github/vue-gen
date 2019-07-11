@@ -16,9 +16,9 @@ const getCurrentPath = dir => path.join(process.cwd(), dir)
 const getPath = dir => path.join(__dirname, dir)
 
 // 遍历文件
-files.forEach(async (path, key) => {
+files.forEach(async (file, key) => {
     // 获取文件名和后缀
-    const [name, ext = 'vue'] = path.substring(path.lastIndexOf('/') + 1).split('.')
+    const [name, ext = 'vue'] = file.substring(file.lastIndexOf('/') + 1).split('.')
 
     // 渲染与读取
     const content = await ejs.renderFile(getPath('./template.vue'), { name }, { async: true })
